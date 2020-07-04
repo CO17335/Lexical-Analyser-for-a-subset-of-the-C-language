@@ -1,3 +1,12 @@
+# #commands on terminal in order to run the program file.
+##### **Step 1:**  lex filename.l or lex filename.lex depending on the extension file is saved with
+##### **Step 2:**  gcc lex.yy.c
+##### **Step 3:**  ./a.out
+##### **Step 4:**  Provide the input to program (here copy the test code and paste in the terminal 
+
+
+
+
 ## Aim
 
 To design and implement a lexical analyser using lex for a subset of the C language.
@@ -51,7 +60,13 @@ In computer science, lexical analysis is the process of converting a sequence of
 ## Flex Script
 The script written by us is a program that generates lexical analyzers (&quot;scanners&quot; or &quot;lexers&quot;). Lex reads an input stream specifying the lexical analyzer and outputs source code implementing the lexer in the C programming language. The structure of our flex script is intentionally similar to that of a yacc file; files are divided into three sections, separated by lines that contain only two percent signs, as follows:
 
-_ **Definition section** _ _ **%%** _ _ **Rules section** _ _ **%%** _ _ **C code section** _The definition section defines macros and imports header files written in C. It is also possible to write any C code here, which will be copied verbatim into the generated source file. The rules section associates regular expression patterns with C statements. When the lexer sees text in the input matching a given pattern, it will execute the associated C code. The C code section contains C statements and functions that are copied verbatim to the generated source file. These statements presumably contain code called by the rules in the rules section. In large programs it is more convenient to place this code in a separate file linked in at compile time.
+##### _ **Definition section** _ 
+##### _ **%%** _
+##### _ **Rules section** _
+##### _ **%%** _
+##### _ **C code section** _
+
+The definition section defines macros and imports header files written in C. It is also possible to write any C code here, which will be copied verbatim into the generated source file. The rules section associates regular expression patterns with C statements. When the lexer sees text in the input matching a given pattern, it will execute the associated C code. The C code section contains C statements and functions that are copied verbatim to the generated source file. These statements presumably contain code called by the rules in the rules section. In large programs it is more convenient to place this code in a separate file linked in at compile time.
 
 
 ## C Program
@@ -69,7 +84,7 @@ This section describes the input C program which is fed to the flex script in or
 
  ![](img/1.jpg)
 
-Lexical Analyzer generates the tokenized program and symbol table for the input C program.
+ Lexical Analyzer generates the tokenized program and symbol table for the input C program.
 
 
 
@@ -81,7 +96,7 @@ Lexical Analyzer generates the tokenized program and symbol table for the input 
 ## Code
 Lex Code : (scanner.l file)
 
-
+ ##### https://github.com/CO17335/Lexical-Analyser-for-a-subset-of-the-C-language/blob/master/scanner.l
 
 
 
@@ -100,27 +115,44 @@ The flex script recognises the following classes of tokens from the input:
 
 
 - Pre-processor instructions
-Statements processed : #include\&lt;stdio.h\&gt;, #define var1 var2 Token generated : Header / Preprocessor Directive
+Statements processed : 
+##### #include\&lt;stdio.h\&gt;,
+##### #define var1 var2 
+##### Token generated : Header / Preprocessor Directive
 
 
 - Single-line comments
-Statements processed : //........... Token generated : Single Line Comment
+##### Statements processed : //...........
+##### Token generated : Single Line Comment
 
 
 - Multi-line comments
-Statements processed : /\*...........\*/, /\*.../\*...\*/ Token generated : Multi Line Comment
+##### Statements processed : /\*...........\*/, /\*.../\*...\*/
+
+##### Token generated : Multi Line Comment
 
 
 - Errors for unmatched comments
-Statements processed : /\*.......... Token generated : Error with line number
+
+##### Statements processed : /\*.......... 
+
+##### Token generated : Error with line number
 
 
 - Errors for nested comments
-Statements processed : /\*....../\*....\*/....\*/ Token generated : Error with line number
+
+##### Statements processed : /\*....../\*....\*/....\*/
+
+##### Token generated : Error with line number
 
 
 - Parentheses (all types)
-Statements processed : (..), {..}, [..] (without errors) (..)..), {..}..}, [..]..], (..., {..., [... (with errors) Tokens generated : Parenthesis (without error) / Error with line number (with error)
+
+##### Statements processed : (..), {..}, [..] (without errors) 
+
+##### (..)..), {..}..}, [..]..], (..., {..., [... (with errors) 
+
+##### Tokens generated : Parenthesis (without error) / Error with line number (with error)
 
 
 - Operators
