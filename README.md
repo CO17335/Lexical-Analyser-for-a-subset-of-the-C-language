@@ -1,4 +1,4 @@
-# #commands on terminal in order to run the program file.
+# commands on terminal in order to run the program file.
 ##### **Step 1:**  lex filename.l or lex filename.lex depending on the extension file is saved with
 ##### **Step 2:**  gcc lex.yy.c
 ##### **Step 3:**  ./a.out
