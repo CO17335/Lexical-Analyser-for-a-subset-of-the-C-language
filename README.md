@@ -1,5 +1,5 @@
 # commands on terminal in order to run the program file.
-##### **Step 1:**  lex filename.l or lex filename.lex depending on the extension file is saved with
+##### **Step 1:**  lex filename.l or lex filename.lex depending on the extension file is saved with (HERE lex scanner.l)
 ##### **Step 2:**  gcc lex.yy.c
 ##### **Step 3:**  ./a.out
 ##### **Step 4:**  Provide the input to program (here copy the test code and paste in the terminal)
